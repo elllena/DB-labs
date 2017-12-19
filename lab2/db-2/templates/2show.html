@@ -1,0 +1,112 @@
+{% load static %}<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>lab2_show</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    </head>
+    <body>
+        <table class="table table-striped table-bordered" style="width:100%" border="1">
+            <form action="/main/" method="get">
+               <button type="submit" style="margin-left:10px;margin-top:10px" class="btn btn-primary waves-effect waves-light " value="submit">cancel</button>
+            </form>
+            <form action="/load/" method="get">
+               <button type="submit" style="margin-left:10px;margin-top:10px" class="btn btn-primary waves-effect waves-light " value="submit">reload</button>
+            </form>
+            <ol class="breadcrumb my-4">
+                <li class="breadcrumb-item active">airlines</li>
+            </ol>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>rank</th>
+                    <th>home</th>
+                </tr>
+            </thead>
+        <tbody>
+            {% if airlines %}
+                {% for airline in airlines %}
+                    <tr>
+                        {% for data in airline %}
+                            <td>{{ data }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table><table class="table table-striped table-bordered" style="width:100%" border="1">
+            <ol class="breadcrumb my-4">
+                <li class="breadcrumb-item active">cards</li>
+            </ol>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>card limit</th>
+                    <th>rank</th>
+                    <th>bank name</th>
+                </tr>
+            </thead>
+        <tbody>
+            {% if cards %}
+                {% for card in cards %}
+                    <tr>
+                        {% for data in card %}
+                            <td>{{ data }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table><table class="table table-striped table-bordered" style="width:100%" border="1">
+            <ol class="breadcrumb my-4">
+                <li class="breadcrumb-item active">clients</li>
+            </ol>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>age</th>
+                    <th>home</th>
+                    <th>comment</th>
+                    <th>vip</th>
+                </tr>
+            </thead>
+        <tbody>
+            {% if clients %}
+                {% for client in clients %}
+                    <tr>
+                        {% for data in client %}
+                            <td>{{ data }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table><table class="table table-striped table-bordered" style="width:100%" border="1">
+            <ol class="breadcrumb my-4">
+                <li class="breadcrumb-item active">tickets</li>
+            </ol>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>date</th>
+                    <th>from</th>
+                    <th>to</th>
+                    <th>cost</th>
+                </tr>
+            </thead>
+        <tbody>
+            {% if tickets %}
+                {% for ticket in tickets %}
+                    <tr>
+                        {% for data in ticket %}
+                            <td>{{ data }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+    </body>
+</html>
