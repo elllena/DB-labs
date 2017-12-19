@@ -1,0 +1,46 @@
+{% load static %}<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>search</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    </head>
+    <body>
+
+    <div class="span10" style="margin-left:50px;margin-top:50px">
+        <table class="table table-striped table-bordered" style="width:100%" border="1">
+            <thead>
+                <tr>
+                    <th>search</th>
+                </tr>
+            </thead>
+         <tbody><tr><th>
+        <form action="/show_date/" method="post">
+            {%  csrf_token %}
+            <p1><i>from</i></p1>
+            <input type="date" style="margin-left:0px" name="from" min="1900-01-01" max="2100-01-01" value="2017-12-01">
+            <p1><i>to</i></p1>
+            <input type="date" style="margin-left:0px" name="to" min="1901-01-01"  max="2101-01-01" value="2017-12-31"><br>
+            <p1><i>Vip:</i></p1><br>
+            <input type="radio"  style="margin-left:30px" name="vip" value=0 checked> no <br>
+            <input type="radio"  style="margin-left:30px" name="vip" value=1> yes
+            <button type="submit" style="margin-left:270px" class="btn btn-primary waves-effect waves-light " value="submit">go</button>
+        </form>
+         </th></tr><tr><th>
+        <form action="/show_text/" method="post">
+            {%  csrf_token %}
+            <p1><i>mustn't be present(only 1 word)</i></p1><br>
+            <input type="text" name="text1" value="evil"><br>
+            <p1><i>must be present(1+ words)</i></p1><br>
+            <input type="text" name="text2" value="good guy">
+            <button type="submit" style="margin-left:148px" class="btn btn-primary waves-effect waves-light " value="submit">go</button>
+        </form>
+         </th></tr><tr><th>
+        <form action="/main/" method="get">
+            <button type="submit" style="margin-left:321px" class="btn btn-primary waves-effect waves-light " value="submit">cancel</button><br>
+        </form>
+         </th></tr></tbody>
+        </table>
+    </div>
+    </body>
+</html>
